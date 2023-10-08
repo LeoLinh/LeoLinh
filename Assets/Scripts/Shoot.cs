@@ -15,6 +15,10 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isPausing)
+        {
+            return;
+        }
         timeBtwFire -= Time.deltaTime;
         if (Input.GetMouseButton(0) && timeBtwFire < 0)
         {
@@ -30,21 +34,5 @@ public class Shoot : MonoBehaviour
         Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            // Lấy component EnemyController từ đối tượng Enemy
-            EnemyController enemy = other.GetComponent<EnemyController>();
 
-            if (enemy != null)
-            {
-                // Gọi hàm tiêu diệt Enemy
-                enemy.Die();
-            }
-
-            // Hủy đạn sau khi va chạm
-            Destroy(gameObject);
-        }
-    }
 }

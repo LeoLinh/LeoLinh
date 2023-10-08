@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BallGenerater : MonoBehaviour
 {
-    public GameObject ballPrefab;
+    public List<GameObject> ballPrefab;
     private float countdown;
     public float timeDuration;
 
@@ -18,11 +18,12 @@ public class BallGenerater : MonoBehaviour
         countdown -= Time.deltaTime; // moi frame countdown -= 1/fps
         if (countdown <= 0)
         {
-            GameObject ball = Instantiate(ballPrefab, new Vector3(UnityEngine.Random.Range(2f, -2f), 5,  0), quaternion.identity);
+            int randomBall = UnityEngine.Random.Range(0, ballPrefab.Count);
+            GameObject ball = Instantiate(ballPrefab[randomBall], new Vector3(UnityEngine.Random.Range(2f, -2f), 5,  0), quaternion.identity);
             GameManager.Instance.balls.Add(ball);
             countdown = timeDuration;
-            StartCoroutine(DestroyBallAfterDelay(ball, 8f)); // Huỷ bóng sau 5 giây
-            countdown = timeDuration;
+            //StartCoroutine(DestroyBallAfterDelay(ball, 8f)); // Huỷ bóng sau 5 giây
+            //countdown = timeDuration;
         }
     }
     IEnumerator DestroyBallAfterDelay(GameObject ball, float delay)

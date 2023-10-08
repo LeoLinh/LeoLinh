@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.Instance.isPausing)
+        {
+            return;
+        }
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 pos = new Vector2(x, y);
@@ -31,6 +35,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.isPausing)
+        {
+            return;
+        }
         Vector2 rbPos = rb.position;
         rbPos += Velocity * Time.fixedDeltaTime;
 

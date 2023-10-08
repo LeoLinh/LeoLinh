@@ -27,8 +27,12 @@ using UnityEngine;
 
         private void FixedUpdate()
         {
-            
-                Move();
+
+        if (GameManager.Instance.isPausing)
+        {
+            return;
+        }
+        Move();
                 CheckReset();
             
             

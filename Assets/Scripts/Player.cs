@@ -5,16 +5,16 @@ using UnityEngine.TextCore.Text;
 
 public class Player : MonoBehaviour
 {
-    //public float moveSpeed = 5f;
     private Vector2 Velocity;
     private Rigidbody2D rb;
     public float speed;
-    //public Animator animator;
-    //public Vector3 moveInput;
-
+    private bool levelStart;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        levelStart = false;
     }
     private void Update()
     {
@@ -23,10 +23,10 @@ public class Player : MonoBehaviour
         Vector2 pos = new Vector2(x, y);
         Velocity = pos.normalized * speed;
 
-        //moveInput.x = Input.GetAxis("Horizontal");
-        //moveInput.y = Input.GetAxis("Vertical");
-        //transform.position += moveInput * moveSpeed * Time.deltaTime;
-        //animator.SetFloat("Speed", moveInput.sqrMagnitude);
+        if (levelStart == false )
+        {
+            levelStart = true;
+        }
     }
 
     private void FixedUpdate()
@@ -40,5 +40,9 @@ public class Player : MonoBehaviour
         rbPos.x = Mathf.Clamp(rbPos.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
         rbPos.y = Mathf.Clamp(rbPos.y, leftEdge.y + 0.5f, rightEdge.y - 0.5f);
         rb.MovePosition(rbPos);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Va Cham");
     }
 }

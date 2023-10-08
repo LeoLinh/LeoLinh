@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,5 +24,18 @@ public class EnemyController : MonoBehaviour
     private void Move()
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+        }
+    }
+    public void Die()
+    {
+        // Hủy đối tượng Enemy khi bị tiêu diệt
+        Destroy(gameObject);
     }
 }

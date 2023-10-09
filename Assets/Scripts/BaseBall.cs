@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +62,7 @@ public class BaseBall : MonoBehaviour
 
     public virtual void Die()
     {
-        // H?y ??i t??ng Enemy khi b? ti�u di?t
+        // H?y ??i t??ng Enemy khi b? tiêu di?t
         Debug.Log("Work");
         Destroy(gameObject);
     }

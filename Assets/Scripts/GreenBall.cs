@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GreenBall : BaseBall
 {
-
     public GameObject smallBall;
     // Start is called before the first frame update
     public override void preset()

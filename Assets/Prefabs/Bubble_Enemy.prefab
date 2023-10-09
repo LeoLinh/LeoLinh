@@ -137,5 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  hp: 1
   countHit: 0
+  coins: {fileID: 3012453557509420529, guid: 174e2032cdbfd8c44a98bba481eceb80, type: 3}
+  coinPrefab: {fileID: 3012453557509420529, guid: 174e2032cdbfd8c44a98bba481eceb80, type: 3}

@@ -6,7 +6,6 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet; // lưu trữ prefab đạn
     public Transform firePos; // lưu trữ nơi xuất đạn
-    //public GameObject muzzle;
 
     public float TimeBtwFire = 0.2f; // quản lý việc bắn nhanh hay chậm
     public float bulletForce;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> balls;
 
+    public Transform player;
+
     public void PauseGame()
     {
         isPausing = true;
@@ -18,7 +21,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        // call load scene
+        // Load lại cảnh hiện tại
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
     public void OnEndGame()
     {
@@ -43,12 +48,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Xoa bong'
+        //// Xóa tất cả các bóng
+        //foreach (GameObject ball in balls)
+        //{
+        //    Destroy(ball);
+        //}
 
-        // Reset player's position
+        //// Đặt lại vị trí của người chơi (thay thế Vector3 bằng vị trí ban đầu của người chơi)
+        //player.position = new Vector3(0f, -3.36f, 0f);  // Thay thế Vector3 bằng vị trí ban đầu của người chơi
     }
-
-
-
 
 }

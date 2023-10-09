@@ -5,21 +5,10 @@ using UnityEngine;
 public class BaseBall : MonoBehaviour
 {
     public float speed;
-    //private Rigidbody2D rb;
-    //private void Awake()
-    //{
-    //    rb = GetComponent<Rigidbody2D>();
-    //}
-    //private void FixedUpdate()
-    //{
-    //    Vector2 rbPos = rb.position;
-    //    rbPos += Vector2.down * speed * Time.fixedDeltaTime;
-    //    rb.MovePosition(rbPos);
-    //}
-
     protected int hp;
     public int countHit;
 
+    public GameObject coins;
     public virtual void preset()
     {
         //atk = 4;
